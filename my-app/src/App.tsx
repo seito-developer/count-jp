@@ -63,7 +63,7 @@ function App() {
   speech.pitch = 1;
 
   const resetVal = () => {
-    speech.lang = "en";
+    speech.lang = "en-US";
     speech.text = randomCounts();
   }
   
