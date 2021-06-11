@@ -8,8 +8,8 @@ const DELAY = 2000;
 let timer:any;
 
 const SPEAKER = {
-  en: 'Google UK English Female',
-  jp: 'Google 日本語'
+  en: 'Karen',
+  jp: 'Kyoko'
 }
 
 //「イギリス人風の声質」のvoiceオブジェクトを取得
