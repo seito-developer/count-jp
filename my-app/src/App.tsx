@@ -35,10 +35,11 @@ function speak(speaker:string, text:string){
 }
 
 const handleClick = () => {
-  speak(SPEAKER.en,randomCounts());
+  const script = randomCounts();
+  speak(SPEAKER.en, script);
   clearTimeout(timer);
   timer = setTimeout(() => {
-    speak(SPEAKER.jp,randomCounts())
+    speak(SPEAKER.jp, script)
   }, DELAY);
 }
 
