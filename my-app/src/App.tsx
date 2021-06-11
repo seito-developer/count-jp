@@ -20,14 +20,12 @@ let voice = speechSynthesis.getVoices().find(function(voice){
 function speak(speaker:string, text:string){
   const uttr = new SpeechSynthesisUtterance(text);
   
+  // Need to call 2 times because of the API's issue
   voice = speechSynthesis.getVoices().find(function(voice){
     return voice.name === speaker;
   });
 
-  // 取得できた場合のみ適用する
-  if(voice){
-    uttr.voice = voice;
-  }
+  
   if(voice){
     uttr.voice = voice;
   }
