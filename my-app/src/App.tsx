@@ -3,22 +3,6 @@ import logo from './logo.svg';
 import randomCounts from './funcRandomCounts';
 import './App.css';
 
-const meta = {
-  title: 'CountJP | Be strong for English numbers',
-  description: 'metaの説明文',
-}
-
-document.title = meta.title;
-const headData = document.head.children;
-for (let i = 0; i < headData.length; i++) {
-  const nameVal:any = headData[i].getAttribute('name');
-  if (nameVal !== null) {
-    if (nameVal.indexOf('description') != -1) {
-      headData[i].setAttribute('content', meta.description);
-    }
-  }
-}
-
 const DELAY = 2000;
 const SPEAKER = {
   en: 'Karen',
