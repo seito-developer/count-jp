@@ -10,6 +10,13 @@ body {
   height: 100vh;
 }
 
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Safari用のハック */
+    height: -webkit-fill-available;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
