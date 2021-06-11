@@ -5,11 +5,38 @@ import randomCounts from './funcRandomCounts';
 import './App.css';
 
 const DELAY = 2000;
-
-
 let timer:any;
 
+const SPEAKER = {
+  en: 'Google UK English Female'
+}
 
+//「イギリス人風の声質」のvoiceオブジェクトを取得
+let voice = speechSynthesis.getVoices().find(function(voice){
+  return voice.name === SPEAKER.en;
+});
+
+function speak(){
+  const text = randomCounts();
+  const uttr = new SpeechSynthesisUtterance(text);
+  
+  voice = speechSynthesis.getVoices().find(function(voice){
+    return voice.name === SPEAKER.en;
+  });
+
+  // 取得できた場合のみ適用する
+  if(voice){
+    uttr.voice = voice;
+  }
+  if(voice){
+    uttr.voice = voice;
+  }
+  speechSynthesis.speak(uttr);
+}
+
+const handleClick = () => {
+  speak(); 
+}
 
 function App() {
 
