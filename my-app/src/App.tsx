@@ -5,14 +5,13 @@ import randomCounts from './funcRandomCounts';
 import './App.css';
 
 const DELAY = 2000;
-let timer:any;
-
 const SPEAKER = {
   en: 'Karen',
   jp: 'Kyoko'
 }
+let timer:any;
 
-//「イギリス人風の声質」のvoiceオブジェクトを取得
+// get voice data
 let voice = speechSynthesis.getVoices().find(function(voice){
   return voice.name === SPEAKER.en;
 });
@@ -24,7 +23,6 @@ function speak(speaker:string, text:string){
   voice = speechSynthesis.getVoices().find(function(voice){
     return voice.name === speaker;
   });
-
   
   if(voice){
     uttr.voice = voice;
