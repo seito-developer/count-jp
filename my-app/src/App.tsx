@@ -8,7 +8,8 @@ const DELAY = 2000;
 let timer:any;
 
 const SPEAKER = {
-  en: 'Google UK English Female'
+  en: 'Google UK English Female',
+  jp: 'Google 日本語'
 }
 
 //「イギリス人風の声質」のvoiceオブジェクトを取得
@@ -16,12 +17,11 @@ let voice = speechSynthesis.getVoices().find(function(voice){
   return voice.name === SPEAKER.en;
 });
 
-function speak(){
-  const text = randomCounts();
+function speak(speaker:string, text:string){
   const uttr = new SpeechSynthesisUtterance(text);
   
   voice = speechSynthesis.getVoices().find(function(voice){
-    return voice.name === SPEAKER.en;
+    return voice.name === speaker;
   });
 
   // 取得できた場合のみ適用する
@@ -35,7 +35,11 @@ function speak(){
 }
 
 const handleClick = () => {
-  speak(); 
+  speak(SPEAKER.en,randomCounts());
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    speak(SPEAKER.jp,randomCounts())
+  }, DELAY);
 }
 
 function App() {
